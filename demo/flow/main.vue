@@ -86,7 +86,7 @@ export default {
       })
 
       each(mockData.link, l => {
-        edges.push({ source: l.from, target: l.to })
+        edges.push({ source: l.from, target: l.to, shape: 'flow-polyline' })
       })
 
       if (shouldDagre) {
