@@ -1,0 +1,30 @@
+{
+  "name": "vg-editor",
+  "version": "0.0.1",
+  "description": "A visual graph editor based on G6 and Vue, inspired by GGEditor",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node demo/server.js"
+  },
+  "repository": "git@github.com:ChrisShen93/VGEditor.git",
+  "author": "ChrisShen93 <chrisshen93@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.3.0",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-vue-libs": "^4.0.0",
+    "express": "^4.17.1",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.39.3",
+    "webpack-dev-middleware": "^3.7.1",
+    "webpack-hot-middleware": "^2.25.0"
+  }
+}
