@@ -2,6 +2,7 @@
   <v-g-editor class="demo">
     <div class="flow">
       <div class="flow__header">
+        <flow-toolbar/>
       </div>
       <div class="flow__container">
         <div class="flow__sidebar">
@@ -24,6 +25,7 @@
 import VGEditor, { Flow } from 'vg-editor'
 import Dagre from 'dagre'
 import { each } from 'lodash'
+import { FlowToolbar } from '../components/EditorToolbar'
 import { FlowItemPanel } from '../components/EditorItemPanel'
 import { FlowDetailPanel } from '../components/EditorDetailPanel'
 import EditorMinimap from '../components/EditorMinimap'
@@ -133,6 +135,7 @@ export default {
   components: {
     VGEditor,
     Flow,
+    FlowToolbar,
     FlowItemPanel,
     FlowDetailPanel,
     EditorMinimap,

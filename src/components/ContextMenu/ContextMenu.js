@@ -17,6 +17,10 @@ export default {
     })
   },
 
+  beforeDestroy () {
+    this.contextMenu = null
+  },
+
   methods: {
     getContainerId () {
       const { editor } = this.root

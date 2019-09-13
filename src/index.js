@@ -17,6 +17,7 @@ import ContextMenu, {
   MultiMenu,
   CanvasMenu
 } from '@components/ContextMenu'
+import Toolbar from '@components/Toolbar'
 
 export {
   Flow,
@@ -35,7 +36,8 @@ export {
   EdgeMenu,
   GroupMenu,
   MultiMenu,
-  CanvasMenu
+  CanvasMenu,
+  Toolbar
 }
 
 export default VGEditor
