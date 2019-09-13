@@ -1,5 +1,6 @@
 import VGEditor from '@components/VGEditor'
 import Flow from '@components/Flow'
+import Command from '@components/Command'
 import ItemPanel, { Item } from '@components/ItemPanel'
 import DetailPanel, {
   NodePanel,
@@ -9,9 +10,17 @@ import DetailPanel, {
   CanvasPanel
 } from '@components/DetailPanel'
 import Minimap from '@components/Minimap'
+import ContextMenu, {
+  NodeMenu,
+  EdgeMenu,
+  GroupMenu,
+  MultiMenu,
+  CanvasMenu
+} from '@components/ContextMenu'
 
 export {
   Flow,
+  Command,
   ItemPanel,
   Item,
   DetailPanel,
@@ -20,7 +29,13 @@ export {
   GroupPanel,
   MultiPanel,
   CanvasPanel,
-  Minimap
+  Minimap,
+  ContextMenu,
+  NodeMenu,
+  EdgeMenu,
+  GroupMenu,
+  MultiMenu,
+  CanvasMenu
 }
 
 export default VGEditor

@@ -16,6 +16,7 @@
         </div>
       </div>
     </div>
+    <flow-context-menu/>
   </v-g-editor>
 </template>
 
@@ -26,6 +27,7 @@ import { each } from 'lodash'
 import { FlowItemPanel } from '../components/EditorItemPanel'
 import { FlowDetailPanel } from '../components/EditorDetailPanel'
 import EditorMinimap from '../components/EditorMinimap'
+import { FlowContextMenu } from '../components/EditorContextMenu'
 import mockData from '../mockData/flow-data'
 
 export default {
@@ -133,7 +135,8 @@ export default {
     Flow,
     FlowItemPanel,
     FlowDetailPanel,
-    EditorMinimap
+    EditorMinimap,
+    FlowContextMenu
   }
 }
 </script>
