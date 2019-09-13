@@ -162,10 +162,10 @@ body {
   display flex
   flex-direction column
 
-  // &__header {
-  //   // TODO: 暂时不需要toolbar的功能
-  //   height 40px
-  // }
+  &__header {
+    border 1px solid #e6e9ed
+    padding 8px
+  }
 
   &__container {
     flex 1
