@@ -1,8 +1,7 @@
 <template>
   <command :name="command">
     <div class="item">
-      <!-- <IconFont :type="`icon-${icon || command}`"/> -->
-      <span>{{ icon || command }}</span>
+      <icon :type="iconType"/>
       <span>{{ label }}</span>
     </div>
   </command>
@@ -10,6 +9,7 @@
 
 <script>
 import { Command } from 'vg-editor'
+import Icon from '../Icon'
 import upperFirst from 'lodash/upperFirst'
 
 export default {
@@ -18,11 +18,18 @@ export default {
   props: ['command', 'icon', 'text'],
 
   computed: {
+    iconType () {
+      return `icon-${this.icon || this.command}`
+    },
+
     label () {
       return this.text || upperFirst(this.command)
     }
   },
 
-  components: { Command }
+  components: {
+    Command,
+    Icon
+  }
 }
 </script>
