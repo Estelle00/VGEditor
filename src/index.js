@@ -8,6 +8,7 @@ import DetailPanel, {
   MultiPanel,
   CanvasPanel
 } from '@components/DetailPanel'
+import Minimap from '@components/Minimap'
 
 export {
   Flow,
@@ -18,7 +19,8 @@ export {
   EdgePanel,
   GroupPanel,
   MultiPanel,
-  CanvasPanel
+  CanvasPanel,
+  Minimap
 }
 
 export default VGEditor

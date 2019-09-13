@@ -12,6 +12,7 @@
         </div>
         <div class="flow__panel">
           <flow-detail-panel/>
+          <editor-minimap/>
         </div>
       </div>
     </div>
@@ -24,6 +25,7 @@ import Dagre from 'dagre'
 import { each } from 'lodash'
 import { FlowItemPanel } from '../components/EditorItemPanel'
 import { FlowDetailPanel } from '../components/EditorDetailPanel'
+import EditorMinimap from '../components/EditorMinimap'
 import mockData from '../mockData/flow-data'
 
 export default {
@@ -130,7 +132,8 @@ export default {
     VGEditor,
     Flow,
     FlowItemPanel,
-    FlowDetailPanel
+    FlowDetailPanel,
+    EditorMinimap
   }
 }
 </script>
