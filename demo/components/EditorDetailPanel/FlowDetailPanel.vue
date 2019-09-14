@@ -1,7 +1,6 @@
 <template>
   <detail-panel>
     <template v-slot="{ status }">
-    <!-- <template slot-scope="scope"> -->
       <node-panel :status="status">
         <detail-form type="node"/>
       </node-panel>
