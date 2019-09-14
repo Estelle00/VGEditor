@@ -1,5 +1,9 @@
-import { merge } from '@utils'
+import Editor from '@components/Base/Editor'
 import {
+  MIND_CONTAINER,
+  MIND_CLASS_NAME,
+  EVENT_BEFORE_ADD_PAGE,
+  EVENT_AFTER_ADD_PAGE,
   GRAPH_MOUSE_EVENTS,
   GRAPH_OTHER_EVENTS,
   PAGE_EVENTS,
@@ -7,53 +11,28 @@ import {
   GRAPH_OTHER_REACT_EVENTS,
   PAGE_REACT_EVENTS
 } from '@common/constants'
+import Page from '../Page'
 
 export default {
-  mounted () {
-    this.init().then(this.bindEvent)
-  },
+  mixins: [Page],
+
+  name: 'Mind',
 
   methods: {
-    getPageId () {
-      // should be extend
-    },
-
     initPage () {
-      // should be extend
-    },
+      const editor = this.root.editor
 
-    readData () {
-      const { data } = this.config
+      editor.emit(EVENT_BEFORE_ADD_PAGE, { className: MIND_CLASS_NAME })
 
-      if (data) {
-        this.page.read(data)
-      }
-    },
+      this.page = new Editor.Mind(this.config)
 
-    addListener (target, eventName, handler) {
-      if (typeof handler === 'function') target.on(eventName, handler)
-    },
+      editor.add(this.page)
 
-    init () {
-      return new Promise(resolve => {
-        this.pageId = this.getPageId()
-
-        merge(this.config, this.$props, {
-          graph: {
-            container: this.pageId
-          }
-        })
-
-        this.$nextTick(() => {
-          this.initPage()
-          this.readData()
-
-          resolve()
-        })
-      })
+      editor.emit(EVENT_AFTER_ADD_PAGE, { page: this.page })
     },
 
     bindEvent () {
+      /* todo: find a way to extend from super       begin */
       const { addListener } = this
       const props = this.$props || {}
 
@@ -75,24 +54,39 @@ export default {
       PAGE_EVENTS.forEach((event) => {
         addListener(this.page, [event], props[PAGE_REACT_EVENTS[event]])
       })
+      /* todo: find a way to extend from super     end */
+
+      this.bindKeyUpEditLabel()
+    },
+
+    bindKeyUpEditLabel () {
+      const editLabel = this.page.get('labelTextArea')
+
+      editLabel.on('keyup', (e) => {
+        e.stopPropagation()
+
+        const item = editLabel.focusItem
+        const text = editLabel.textContent
+
+        this.page.emit('keyUpEditLabel', {
+          item,
+          text
+        })
+      })
+    },
+
+    getPageId () {
+      return `${MIND_CONTAINER}_${this.root.editor.id}`
     }
   },
 
-  inject: ['root'],
+  props: {
+    data: { default: () => ({ roots: [] }) }
+  },
 
   data () {
     return {
-      config: {},
       pageId: ''
     }
-  },
-
-  render () {
-    const { page, pageId } = this
-    return (
-      <div id={pageId} style={{ height: '100%' }}>
-        {page ? this.$scopedSlots.default() : null}
-      </div>
-    )
   }
 }
