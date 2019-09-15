@@ -13,6 +13,11 @@ export default {
     this.init().then(this.bindEvent)
   },
 
+  beforeDestroy () {
+    this.page && this.page.destroy()
+    this.page = null
+  },
+
   methods: {
     getPageId () {
       // should be extend
@@ -83,6 +88,7 @@ export default {
   data () {
     return {
       config: {},
+      page: null,
       pageId: ''
     }
   },
@@ -91,7 +97,11 @@ export default {
     const { page, pageId } = this
     return (
       <div id={pageId} style={{ height: '100%' }}>
-        {page ? this.$scopedSlots.default() : null}
+        {page
+          ? this.$scopedSlots.default
+            ? this.$scopedSlots.default()
+            : null
+          : null}
       </div>
     )
   }

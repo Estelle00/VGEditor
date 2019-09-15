@@ -32,7 +32,7 @@ export default {
   render () {
     return (
       <div>
-        { this.$scopedSlots.default() }
+        {this.$scopedSlots.default ? this.$scopedSlots.default() : null}
       </div>
     )
   }

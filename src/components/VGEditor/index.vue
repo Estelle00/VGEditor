@@ -43,17 +43,11 @@ export default {
 
     init () {
       this.editor = new Editor()
-      // this.vgEditor = {
-      //   editor: this.editor,
-      //   onBeforeAddPage: this.handleBeforeAddPage,
-      //   onAfterAddPage: this.handleAfterAddPage
-      // }
       this.propsAPI = new PropsAPI(this.editor)
     },
 
     bindEvent () {
       EDITOR_EVENTS.forEach(event => {
-        // todo
         this.addListener(this.editor, [event], this[EDITOR_REACT_EVENTS[event]])
       })
     }
@@ -62,7 +56,6 @@ export default {
   data () {
     return {
       editor: null,
-      // vgEditor: {},
       propsAPI: null
     }
   },
@@ -70,15 +63,14 @@ export default {
   provide () {
     return {
       root: this
-      // todo
-      // vgEditor: this.vgEditor
-      // propsAPI
     }
   },
 
   render () {
     return (
-      <div>{ this.$scopedSlots.default() }</div>
+      <div>
+        {this.$scopedSlots.default ? this.$scopedSlots.default() : null}
+      </div>
     )
   }
 }

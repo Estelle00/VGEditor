@@ -8,10 +8,6 @@ export default {
     this.getContainerId()
   },
 
-  beforeDestroy () {
-    this.toolbar = null
-  },
-
   mounted () {
     const { editor, handleAfterAddPage } = this.root
 
@@ -22,6 +18,11 @@ export default {
 
       editor.add(this.toolbar)
     })
+  },
+
+  beforeDestroy () {
+    this.toolbar && this.toolbar.destroy()
+    this.toolbar = null
   },
 
   methods: {
@@ -44,7 +45,7 @@ export default {
     const { containerId } = this
     return (
       <div id={containerId}>
-        {this.$scopedSlots.default()}
+        {this.$scopedSlots.default ? this.$scopedSlots.default() : null}
       </div>
     )
   }

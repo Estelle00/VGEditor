@@ -82,11 +82,5 @@ export default {
 
   props: {
     data: { default: () => ({ roots: [] }) }
-  },
-
-  data () {
-    return {
-      pageId: ''
-    }
   }
 }

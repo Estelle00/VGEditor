@@ -13,6 +13,10 @@ export default {
     this.init().then(this.bindPage)
   },
 
+  beforeDestroy () {
+    this.minimap && this.minimap.destroy()
+  },
+
   methods: {
     bindEvent () {
       this.root.handleAfterAddPage(this.bindPage)
@@ -76,7 +80,6 @@ export default {
   data () {
     return {
       containerId: '',
-      // currentPage: null,
       minimap: null
     }
   },

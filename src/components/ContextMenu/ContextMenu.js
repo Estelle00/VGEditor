@@ -18,6 +18,7 @@ export default {
   },
 
   beforeDestroy () {
+    this.contextMenu && this.contextMenu.destroy()
     this.contextMenu = null
   },
 
@@ -40,7 +41,7 @@ export default {
   render () {
     return (
       <div id={this.containerId}>
-        {this.$scopedSlots.default()}
+        {this.$scopedSlots.default ? this.$scopedSlots.default() : null}
       </div>
     )
   }

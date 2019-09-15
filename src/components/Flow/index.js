@@ -32,11 +32,5 @@ export default {
 
   props: {
     data: { default: () => ({ nodes: [], edges: [] }) }
-  },
-
-  data () {
-    return {
-      pageId: ''
-    }
   }
 }

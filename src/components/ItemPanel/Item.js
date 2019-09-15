@@ -46,7 +46,11 @@ export default {
     const { src, shape } = this
     return (
       <div style={{ cursor: 'pointer' }} onMousedown={this.handleMouseDown}>
-        {src ? <img src={src} alt={shape} draggable={false}/> : this.$scopedSlots.default()}
+        {src
+          ? <img src={src} alt={shape} draggable={false}/>
+          : this.$scopedSlots.default
+            ? this.$scopedSlots.default()
+            : null}
       </div>
     )
   }
