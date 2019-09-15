@@ -4,14 +4,20 @@
   "description": "A visual graph editor based on G6 and Vue, inspired by GGEditor",
   "main": "index.js",
   "scripts": {
-    "dev": "node build/server.js"
+    "dev": "node build/server.js",
+    "bundle": "node build/bundle.js",
+    "build:es": "rimraf ./es && babel ./src -d ./es",
+    "build:cjs": "rimraf ./cjs && babel ./src -d ./cjs --plugins @babel/plugin-transform-modules-commonjs",
+    "build:umd": "rimraf ./dist && webpack --config ./build/webpack.config.prod.js --progress"
   },
   "repository": "git@github.com:ChrisShen93/VGEditor.git",
   "author": "ChrisShen93 <chrisshen93@gmail.com>",
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
     "@vue/babel-preset-app": "^3.11.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -21,12 +27,14 @@
     "eslint-loader": "^3.0.0",
     "eslint-plugin-vue-libs": "^4.0.0",
     "express": "^4.17.1",
+    "rimraf": "^3.0.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
     "webpack-dev-middleware": "^3.7.1",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2"
