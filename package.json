@@ -2,9 +2,11 @@
   "name": "vg-editor",
   "version": "0.0.1",
   "description": "A visual graph editor based on G6 and Vue, inspired by GGEditor",
-  "main": "index.js",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
   "scripts": {
     "dev": "node build/server.js",
+    "watch": "webpack --config ./build/webpack.config.dev.js --watch",
     "bundle": "node build/bundle.js",
     "build:es": "rimraf ./es && babel ./src -d ./es",
     "build:cjs": "rimraf ./cjs && babel ./src -d ./cjs --plugins @babel/plugin-transform-modules-commonjs",
