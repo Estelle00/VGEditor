@@ -32,9 +32,9 @@ npm install vg-editor@PLUGIN_VERSION -S
 
 |Vue version|Plugin version|Docs|
 |---|---|---|
-|2.4.x|2.4.2|[doc](https://github.com/ChrisShen93/VGEditor/tree/vue-2.4.x)|
-|2.5.x|2.5.1|[doc](https://github.com/ChrisShen93/VGEditor/tree/vue-2.5.x)|
-|2.6.x|2.6.1|[doc](https://github.com/ChrisShen93/VGEditor/tree/vue-2.6.x)|
+|2.4.x|2.4.3|[doc](https://github.com/ChrisShen93/VGEditor/tree/vue-2.4.x)|
+|2.5.x|2.5.2|[doc](https://github.com/ChrisShen93/VGEditor/tree/vue-2.5.x)|
+|2.6.x|2.6.2|[doc](https://github.com/ChrisShen93/VGEditor/tree/vue-2.6.x)|
 
 ### run demo
 
